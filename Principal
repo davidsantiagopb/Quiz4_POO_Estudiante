@@ -1,0 +1,21 @@
+
+import java.time.LocalDate;
+
+public class Principal {
+    
+    public static void main (String [] args){
+        /*
+         * Crea una instancia de la clase "Estudiante" llamada "estudiante1" e 
+         * inicializa sus atributos con valores específicos.
+         */
+        Estudiante estudiante1 = new Estudiante ("Juan", LocalDate.of(2000, 05, 04));
+       
+        /*
+         * Hace uso de los metodos planteados en la clase "Estudiante".  
+         */
+        estudiante1.IngresarNotas();
+        estudiante1.nombre();
+        estudiante1.getEdad();
+        estudiante1.getPromedio();
+    }
+}
