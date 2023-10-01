@@ -1,0 +1,92 @@
+import java.time.LocalDate;
+import java.util.Scanner;
+
+public class Estudiante {
+    
+    /***************************************************************************
+     ******************************ATRIBUTOS************************************
+     ***************************************************************************
+     *Se declaran variables privadas:
+     *nombre, FechaNacimiento, notaMateria1-2-3
+     */
+    
+    private String nombre; 
+    private LocalDate FechaNacimiento;
+    private double notaMateria1;
+    private double notaMateria2;        
+    private double notaMateria3;
+    
+    /***************************************************************************
+     *****************************CONSTRUCTOR***********************************
+     ***************************************************************************
+     * @param nombre
+     * @param FechaNacimiento
+     * 
+     * Complejidad temporal: 0(1) Tiempo Constante
+     */
+    
+    public Estudiante (String nombre, LocalDate FechaNacimiento) {
+        this.nombre = nombre;
+        this.FechaNacimiento = FechaNacimiento;
+    }
+
+    
+    /***************************************************************************
+     ******************************ATRIBUTOS************************************
+     ***************************************************************************
+     * 
+     * El metodo "nombre" muestra el nombre de la variable.
+     * 
+     * Complejidad temporal: 0(1) Tiempo Constante
+     */
+    public String nombre () {
+        System.out.println("Nombre: "+nombre);
+        return "nombre";
+    } 
+    /*
+     *El metodo getEdad obtiene la fecha actual con LocalDate y toma especificamente
+     *el año con (.getYear) para ser restado por el año que indica la fecha de 
+     * nacimiento de la variable "FechaNacimiento".
+     */
+    public int getEdad (){
+        LocalDate DateNow = LocalDate.now();
+        int edad;
+        
+        edad = DateNow.getYear() - FechaNacimiento.getYear();
+        
+        System.out.println("Edad: "+edad);
+        
+        return edad;
+    } 
+        
+    
+    /**
+     * Con el metodo "IngresarNotas" le pide las notas al usuario y las asigna a
+     * las variables "notaMateria#".
+     * 
+     * El metodo "getPromedio" saca el promedio de las notas obtenidas en el metodo
+     * "IngresarNotas".
+     * 
+     */
+    public void IngresarNotas () {
+        
+        Scanner sc = new Scanner (System.in);
+        
+        System.out.println("Ingrese la nota #1: ");
+        this.notaMateria1 = sc.nextDouble();
+        
+        System.out.println("Ingrese la nota #2: ");
+        this.notaMateria2 = sc.nextDouble();
+        
+        System.out.println("Ingrese la nota #3: ");
+        this.notaMateria3 = sc.nextDouble();
+    }
+        
+    public double getPromedio () {
+        double promedio = (notaMateria1 + notaMateria2 + notaMateria3)/3;
+        
+        System.out.println("Promedio: "+promedio);
+        
+        return promedio;
+    }
+}
